@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.dohman.simplebudgetapp.ui.main.MainFragment"
+        android:name="com.dohman.simplebudgetapp.ui.fragments.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
 
