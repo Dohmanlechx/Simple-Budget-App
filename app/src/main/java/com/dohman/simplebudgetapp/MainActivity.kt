@@ -1,11 +1,10 @@
-package com.dohman.simplebudgetapp.ui
+package com.dohman.simplebudgetapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.dohman.simplebudgetapp.R
 import com.dohman.simplebudgetapp.viewmodels.MainActivityViewModel
 
 class MainActivity : AppCompatActivity() {
