@@ -43,6 +43,7 @@ class YearFragment(private val year: Int) : Fragment() {
     }
 
     private fun loadAnnualSavingView() {
+        itemAdapter.clear()
         vm.getAnnualSavingViewOf(year).let { itemAdapter.add(it) }
     }
 }
