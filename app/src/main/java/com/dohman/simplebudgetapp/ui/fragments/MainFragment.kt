@@ -23,7 +23,7 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViewPagerAndTabs()
-        loadYearsData()
+        loadYearViews()
     }
 
     private fun setupViewPagerAndTabs() {
@@ -35,10 +35,11 @@ class MainFragment : Fragment() {
         tabs_year.setupWithViewPager(v_pager_year)
     }
 
-    private fun loadYearsData() {
-        yearAdapter.addYearFragment(YearFragment("2020"), "2020")
-        yearAdapter.addYearFragment(YearFragment("2021"), "2021")
-        yearAdapter.addYearFragment(YearFragment("2022"), "2022")
+    private fun loadYearViews() {
+        for (year in vm.getYears()) {
+            yearAdapter.addYearFragment(YearFragment(year), year.toString())
+        }
+
         yearAdapter.notifyDataSetChanged()
     }
 }

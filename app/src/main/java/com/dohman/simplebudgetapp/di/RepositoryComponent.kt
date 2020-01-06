@@ -3,6 +3,7 @@ package com.dohman.simplebudgetapp.di
 import com.dohman.simplebudgetapp.MainApplication
 import com.dohman.simplebudgetapp.viewmodels.MainActivityViewModel
 import com.dohman.simplebudgetapp.viewmodels.MainViewModel
+import com.dohman.simplebudgetapp.viewmodels.YearViewModel
 import dagger.Component
 import javax.inject.Singleton
 
@@ -13,4 +14,5 @@ interface RepositoryComponent : DataSourceComponent {
 
     fun inject(viewModel: MainActivityViewModel)
     fun inject(viewModel: MainViewModel)
+    fun inject(viewModel: YearViewModel)
 }

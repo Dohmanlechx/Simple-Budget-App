@@ -10,4 +10,9 @@ class MainViewModel : ViewModel() {
     init {
         RepositoryComponent.inject(this)
     }
+
+    fun getYears(): List<Int> {
+        // TODO: Return nowYear + 2 further or so
+        return listOf(2020, 2021, 2022)
+    }
 }
