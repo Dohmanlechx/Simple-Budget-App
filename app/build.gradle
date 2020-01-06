@@ -55,6 +55,13 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
 
+    // MikePenz FastAdapter
+    implementation 'com.mikepenz:fastadapter:4.1.2'
+    implementation 'com.mikepenz:fastadapter-commons:3.3.1'
+    implementation 'com.mikepenz:fastadapter-extensions:3.3.1'
+    implementation 'com.mikepenz:fastadapter-extensions-expandable:4.1.2'
+    implementation 'com.mikepenz:materialize:1.2.0'
+
     // LeakCanary
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.1'
 
