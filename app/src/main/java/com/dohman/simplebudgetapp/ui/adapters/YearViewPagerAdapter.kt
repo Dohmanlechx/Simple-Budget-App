@@ -5,8 +5,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.dohman.simplebudgetapp.ui.fragments.YearFragment
 
-class YearViewPagerAdapter(fm: FragmentManager) :
-    FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+class YearViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
     private val yearFragments = ArrayList<YearFragment>()
     private val yearTitles = ArrayList<String>()
 
