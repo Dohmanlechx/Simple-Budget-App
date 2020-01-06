@@ -26,6 +26,11 @@ class MainFragment : Fragment() {
         loadYearViews()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        yearAdapter.clear()
+    }
+
     private fun setupViewPagerAndTabs() {
         if (!::yearAdapter.isInitialized) {
             yearAdapter = YearViewPagerAdapter(childFragmentManager)
