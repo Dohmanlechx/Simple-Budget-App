@@ -9,6 +9,9 @@ class YearViewPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAV
     private val yearFragments = ArrayList<YearFragment>()
     private val yearTitles = ArrayList<String>()
 
+    val fragmentList: List<YearFragment>
+        get() = yearFragments
+
     override fun getItem(position: Int) = yearFragments[position]
     override fun getCount() = yearFragments.size
     override fun getPageTitle(position: Int) = yearTitles[position]
