@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.Test
 
 class YearViewPagerAdapterTest {
-    lateinit var yearAdapter: YearViewPagerAdapter
+    private lateinit var yearAdapter: YearViewPagerAdapter
 
     @Before
     fun setUp() {

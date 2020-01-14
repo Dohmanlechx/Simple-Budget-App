@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.dohman.simplebudgetapp.R
 import com.dohman.simplebudgetapp.ui.items.AnnualSavingItem
 import com.dohman.simplebudgetapp.viewmodels.YearViewModel
@@ -38,7 +37,6 @@ class YearFragment(private val year: Int) : Fragment() {
     }
 
     private fun setupRecycler() {
-        recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.adapter = fastAdapter
     }
 
