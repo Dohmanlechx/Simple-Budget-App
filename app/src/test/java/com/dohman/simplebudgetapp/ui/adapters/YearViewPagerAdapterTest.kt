@@ -1,8 +1,7 @@
 package com.dohman.simplebudgetapp.ui.adapters
 
+import com.google.common.truth.Truth.assertThat
 import io.mockk.mockk
-import org.junit.Assert.assertEquals
-import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -17,13 +16,15 @@ class YearViewPagerAdapterTest {
     @Test
     fun `When provided the adapter with one item, it should contain one item`() {
         yearAdapter.addYearFragment(fragment = mockk(), title = "")
-        assertEquals(1, yearAdapter.count)
+
+        assertThat(yearAdapter.count).isEqualTo(1)
     }
 
     @Test
     fun `When provided the adapter with ten items, it should contain ten items`() {
         repeat((1..10).count()) { yearAdapter.addYearFragment(fragment = mockk(), title = "") }
-        assertEquals(10, yearAdapter.count)
+
+        assertThat(yearAdapter.count).isEqualTo(10)
     }
 
     @Test
@@ -34,8 +35,7 @@ class YearViewPagerAdapterTest {
         repeat((1..5).count()) { yearAdapter.addYearFragment(fragment = mockk(), title = "") }
         yearAdapter.clear()
 
-        assertTrue(yearAdapter.fragmentList.isEmpty())
-        assertTrue(yearAdapter.fragmentList.isEmpty())
+        assertThat(yearAdapter.fragmentList.isEmpty()).isTrue()
     }
 
     @Test
@@ -52,11 +52,11 @@ class YearViewPagerAdapterTest {
             yearAdapter.addYearFragment(fragment = mockk(), title = title)
         }
 
-        assertEquals("1992", yearAdapter.getPageTitle(3))
-        assertEquals("", yearAdapter.getPageTitle(4))
-        assertEquals("2001", yearAdapter.getPageTitle(6))
-        assertEquals("2020", yearAdapter.getPageTitle(10))
-        assertEquals("", yearAdapter.getPageTitle(12))
-        assertEquals("3129", yearAdapter.getPageTitle(14))
+        assertThat(yearAdapter.getPageTitle(4).isBlank()).isTrue()
+        assertThat(yearAdapter.getPageTitle(12).isBlank()).isTrue()
+        assertThat(yearAdapter.getPageTitle(3)).isEqualTo("1992")
+        assertThat(yearAdapter.getPageTitle(6)).isEqualTo("2001")
+        assertThat(yearAdapter.getPageTitle(10)).isEqualTo("2020")
+        assertThat(yearAdapter.getPageTitle(14)).isEqualTo("3129")
     }
 }
