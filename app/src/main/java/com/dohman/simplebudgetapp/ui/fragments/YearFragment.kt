@@ -31,6 +31,7 @@ class YearFragment(private val year: Int) : Fragment() {
         setupRecycler()
         setAnnualSavingText()
         loadMonthSavingViews()
+        addClickListenersForMonthSavingViews()
     }
 
     override fun onDestroyView() {
@@ -50,6 +51,12 @@ class YearFragment(private val year: Int) : Fragment() {
 
     private fun loadMonthSavingViews() {
         itemAdapter.clear()
-        vm.getMonthSavingViews().forEach { itemAdapter.add(it) }
+        vm.getMonthSavingViews(year).forEach { itemAdapter.add(it) }
+    }
+
+    private fun addClickListenersForMonthSavingViews() {
+        fastAdapter.onClickListener = { view, adapter, item, position ->
+            false
+        }
     }
 }

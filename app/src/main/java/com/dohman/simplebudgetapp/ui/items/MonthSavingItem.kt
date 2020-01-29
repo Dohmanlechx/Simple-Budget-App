@@ -5,10 +5,9 @@ import android.widget.TextView
 import com.dohman.simplebudgetapp.R
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.items.AbstractItem
-import org.threeten.bp.LocalDate
 
 class MonthSavingItem(
-    private val date: LocalDate
+    private val date: String
 ) : AbstractItem<MonthSavingItem.ViewHolder>() {
 
     override val type = R.id.fastadapter_month_saving_item_id
@@ -21,8 +20,8 @@ class MonthSavingItem(
         private val amountMoneyTxt = view.findViewById<TextView>(R.id.description)
 
         override fun bindView(item: MonthSavingItem, payloads: MutableList<Any>) {
-//            monthYearTxt.text = item.month
-//            amountMoneyTxt.text = "1337 kr"
+            monthYearTxt.text = item.date
+            amountMoneyTxt.text = "1337 kr"
         }
 
         override fun unbindView(item: MonthSavingItem) {

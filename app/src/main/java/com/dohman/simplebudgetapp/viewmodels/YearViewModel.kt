@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import com.dohman.simplebudgetapp.di.RepositoryComponent
 import com.dohman.simplebudgetapp.repositories.DateRepository
 import com.dohman.simplebudgetapp.ui.items.MonthSavingItem
-import org.threeten.bp.LocalDate
 import javax.inject.Inject
 
 class YearViewModel : ViewModel() {
@@ -15,8 +14,8 @@ class YearViewModel : ViewModel() {
         RepositoryComponent.inject(this)
     }
 
-    fun getMonthSavingViews(): List<MonthSavingItem> {
-        return emptyList()//dateRepo.allMonths.map { MonthSavingItem(date = LocalDate.now()) }
+    fun getMonthSavingViews(year: Int): List<MonthSavingItem> {
+        return dateRepo.getAllMonths().map { month -> MonthSavingItem(date = "$month $year") }
     }
 
     fun totalSavingsThisYear(year: Int): Int {
