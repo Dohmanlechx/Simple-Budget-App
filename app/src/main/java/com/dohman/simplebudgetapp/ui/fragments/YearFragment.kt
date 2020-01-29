@@ -7,16 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.dohman.simplebudgetapp.R
-import com.dohman.simplebudgetapp.ui.items.AnnualSavingItem
+import com.dohman.simplebudgetapp.ui.items.MonthSavingItem
 import com.dohman.simplebudgetapp.viewmodels.YearViewModel
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import kotlinx.android.synthetic.main.fragment_year.*
+import kotlinx.android.synthetic.main.view_annual_saving.*
 
 class YearFragment(private val year: Int) : Fragment() {
     private lateinit var vm: YearViewModel
 
-    private val itemAdapter = ItemAdapter<AnnualSavingItem>()
+    private val itemAdapter = ItemAdapter<MonthSavingItem>()
     private val fastAdapter = FastAdapter.with(itemAdapter)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -28,7 +29,8 @@ class YearFragment(private val year: Int) : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupRecycler()
-        loadAnnualSavingView()
+        setAnnualSavingText()
+        loadMonthSavingViews()
     }
 
     override fun onDestroyView() {
@@ -40,8 +42,14 @@ class YearFragment(private val year: Int) : Fragment() {
         recycler.adapter = fastAdapter
     }
 
-    private fun loadAnnualSavingView() {
+    private fun setAnnualSavingText() {
+        txt_year_annual_saving_amount.text = String.format(
+            requireContext().getString(R.string.this_year_annual_saving_amount), vm.totalSavingsThisYear(year)
+        )
+    }
+
+    private fun loadMonthSavingViews() {
         itemAdapter.clear()
-        vm.getAnnualSavingViewOf(year).let { itemAdapter.add(it) }
+        vm.getMonthSavingViews().forEach { itemAdapter.add(it) }
     }
 }
