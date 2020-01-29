@@ -2,7 +2,7 @@ package com.dohman.simplebudgetapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.dohman.simplebudgetapp.viewmodels.MainActivityViewModel
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        vm = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        vm = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         navController = findNavController(R.id.nav_host_fragment)
     }
 }

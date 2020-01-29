@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.dohman.simplebudgetapp.R
 import com.dohman.simplebudgetapp.ui.items.AnnualSavingItem
 import com.dohman.simplebudgetapp.viewmodels.YearViewModel
@@ -20,7 +20,7 @@ class YearFragment(private val year: Int) : Fragment() {
     private val fastAdapter = FastAdapter.with(itemAdapter)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        vm = ViewModelProviders.of(this).get(YearViewModel::class.java)
+        vm = ViewModelProvider(this).get(YearViewModel::class.java)
         return inflater.inflate(R.layout.fragment_year, container, false)
     }
 

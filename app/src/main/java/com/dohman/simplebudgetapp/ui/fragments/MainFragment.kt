@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.ViewModelProvider
 import com.dohman.simplebudgetapp.R
 import com.dohman.simplebudgetapp.ui.adapters.YearViewPagerAdapter
 import com.dohman.simplebudgetapp.viewmodels.MainViewModel
@@ -16,7 +16,7 @@ class MainFragment : Fragment() {
     private lateinit var yearAdapter: YearViewPagerAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        vm = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        vm = ViewModelProvider(this).get(MainViewModel::class.java)
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
